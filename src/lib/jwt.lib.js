@@ -1,5 +1,10 @@
-const jwt = require("jsonwebtoken")
-const { JW_SECRET } =process.env
-const sign = (payload ={}) => {
-    return jwt.sign(payload, JW_SECRET, {expiresIn: "5h"})
+const jwt = require( "jsonwebtoken" )
+const { JWT_SECRET } = process.env
+const sign = ( payload ={} ) => {
+    return jwt.sign( payload, JWT_SECRET, { expiresIn: "5h" } )
 }
+
+const verify = ( token ) => {
+    return jwt.verify = ( token, JWT_SECRET ) 
+}
+module.exports = { sign, verify }

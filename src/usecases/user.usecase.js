@@ -1,6 +1,9 @@
 const User = require("../models/user.model")
 const createError = require('http-errors')
 const bcrypt = require("bcrypt")
+const jwt = require("../lib/jwt.lib")
+
+
 // Usercase
 const getAll = () => {
     return User.find( {} )    
@@ -46,7 +49,8 @@ const login = async (email, textPlainPassword) =>{
     const isValidPassword = await bcrypt.compare(textPlainPassword, user.password)
     if(!isValidPassword) throw createError(401, "Invalid data")
 
-    const token =""
+    const token = jwt.sign( { id : user._id } )
+    
     return token;
 }
 
