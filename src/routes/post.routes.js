@@ -93,3 +93,21 @@ router.patch("/:id", async (request, response) =>{
         })
     }
 })
+
+// Post delete
+router.delete("/:id", async (request, response) => {
+    try {
+        await remove( request.params.id )
+        response.json({
+            success : true,
+            message: "El post ha sido eliminado...",
+            payload: "Post eliminado"
+        })
+    } catch (error) {
+        response.status( 400 )
+        response.json({
+            success: false,
+            message: error.message
+        })
+    }
+})
