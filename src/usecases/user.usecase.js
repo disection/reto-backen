@@ -39,14 +39,15 @@ const remove = ( id ) => {
     return User.findByIdAndDelete( id )
 }
 
-const login = async (email, password) =>{
+const login = async (email, textPlainPassword) =>{
     const user= await User.findOne( { email } )
     if(!user) throw createError( 401, "Invalid data" )
     
-    const isValidPassword = bcrypt.compare(textPlainPassword, user.password)
+    const isValidPassword = await bcrypt.compare(textPlainPassword, user.password)
     if(!isValidPassword) throw createError(401, "Invalid data")
 
-    return user
+    const token =""
+    return token;
 }
 
-module.exports = { getAll, getById, create, update, remove}
+module.exports = { getAll, getById, create, update, remove, login}
