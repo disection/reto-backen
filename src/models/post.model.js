@@ -19,8 +19,8 @@ const postSchema = new mongoose.Schema({
         index: true 
     },
     date: { 
-        type: String, 
-        required: true 
+        type: Date, 
+        default: Date.now()
     },
     tags: { 
         type: String, 

@@ -1,4 +1,5 @@
 const express = require("express")
+const routerPosts = require("../src/routes/post.routes")
 
 
 const app = express()
@@ -8,7 +9,8 @@ const app = express()
 app.use(express.json())
 
 // Middleware de rutas
-//app.use( "/posts", routerPosts )
+app.use( "/posts", routerPosts )
+
 
 
 //Endpoint HOME
