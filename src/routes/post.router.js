@@ -63,7 +63,7 @@ router.post("/", async (request,response) =>{
             }
         })
     } catch (error) {
-        response.status( 400 )
+        response.status(error.message || 500 )
         response.json({
             success: false,
             message : error.message

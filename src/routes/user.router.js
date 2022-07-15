@@ -1,5 +1,7 @@
 const express = require("express")
 const app = require("../server")
+const createError = require('http-errors')
+
 const { getAll, getById, create, update, remove } = require("../usecases/user.usecase")
 
 const router = express.Router()
@@ -27,10 +29,9 @@ router.get("/", async (request,response) => {
 })
 
 // GetByID
-router.get("/:id", async (request, response) => {
-    const { id } = request.params
+router.get("/:id", async (request, response) => {   
     try {
-        const user = await getById( id )
+        const user = await getById( request.params.id )
         response. json({
             success: true,
             message: "encontre el usuario que buscabas",
@@ -63,7 +64,7 @@ router.post("/", async (request,response) =>{
             }
         })
     } catch (error) {
-        response.status( 400 )
+        response.status( error.status || 500)
         response.json({
             success: false,
             message : error.message
@@ -94,7 +95,7 @@ router.patch("/:id", async (request, response) =>{
     }
 })
 
-// Post delete
+// User delete
 router.delete("/:id", async (request, response) => {
     try {
         const user = await remove( request.params.id )

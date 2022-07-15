@@ -5,8 +5,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true,
         minlength : 3,
-        maxlength : 20
+        maxlength : 20,
+        unique: true
     },
+    
+    isActiveUser:{
+        type:Boolean
+    }
     
 })
 

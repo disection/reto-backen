@@ -29,7 +29,7 @@ const update = ( id, postData ) =>{
 }
 
 const remove = ( id ) => {
-    const post = Post.findByIdAndDelete( id )
+    return Post.findByIdAndDelete( id )
 }
 
 module.exports = { getAll, getById, create, update, remove}

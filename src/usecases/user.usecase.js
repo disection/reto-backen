@@ -9,14 +9,17 @@ const getAll = () => {
 const getById = (id) => {
     const user = User.findById( id )
     if( !user ) {
-        const error = createError( 404, "Post no encontrado" )
+        const error = createError( 404, "Usuario no encontrado" )
         throw error
     }
     return user
 }
 
-const create = ( userData ) => {
-    return User.create(userData)   
+
+
+const  create = (userData) => {
+    const user = User.create( userData )
+    
 }
 
 const update = ( id, userData ) =>{
@@ -28,8 +31,10 @@ const update = ( id, userData ) =>{
     return user
 }
 
+
+
 const remove = ( id ) => {
-    const user = User.findByIdAndDelete( id )
+    return User.findByIdAndDelete( id )
 }
 
 module.exports = { getAll, getById, create, update, remove}

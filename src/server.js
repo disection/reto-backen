@@ -11,7 +11,7 @@ app.use(express.json())
 
 // Middleware de rutas
 app.use( "/posts", routerPosts )
-app.use( "/user", routerUsers)
+app.use( "/users", routerUsers)
 
 //Endpoint HOME
 app.get("/", (request, response) => {
