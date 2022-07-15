@@ -1,24 +1,24 @@
 const express = require("express")
 const app = require("../server")
-const { getAll, getById, create, update, remove } = require("../usecases/post.usecase")
+const { getAll, getById, create, update, remove } = require("../usecases/user.usecase")
 
 const router = express.Router()
 
-// getAll posts
+// getAll users
 router.get("/", async (request,response) => {
     try {
-        const posts = await getAll()
+        const users = await getAll()
         response.json({
             success: true,
-            message: "Tos el listado de posts esta aquí",
-            payload: "Se imprimen todos los posts",
+            message: "Todo el listado de usuarios esta aquí",
+            payload: "Se imprimen todos los usuarios",
             data: {
-                posts
+                users
             }
         })
 
     } catch (error) {
-        response.status( 400 )
+        response.status( error.status || 500 )
         response.json({
             success: false,
             message: error.message
@@ -30,13 +30,13 @@ router.get("/", async (request,response) => {
 router.get("/:id", async (request, response) => {
     const { id } = request.params
     try {
-        const post = await getById( id )
+        const user = await getById( id )
         response. json({
             success: true,
-            message: "encontre el post que buscabas",
-            payload: "Post encontrado",
+            message: "encontre el usuario que buscabas",
+            payload: "Usuario encontrado",
             data: {
-                post
+                user
             }
             }
         )
@@ -49,17 +49,17 @@ router.get("/:id", async (request, response) => {
     }
 })
 
-// Posts create
+// User create
 router.post("/", async (request,response) =>{
     try {
-        const post = await create(request.body)
+        const user = await create(request.body)
         response.status(201)
         response.json({            
             success: true,
-            message: "El post ha sido creado",
-            payload: "Post create",
+            message: "El usuario ha sido creado correctamente",
+            payload: "Usuario creado",
             data: {
-                post
+                user
             }
         })
     } catch (error) {
@@ -71,18 +71,18 @@ router.post("/", async (request,response) =>{
     }
 })
 
-module.exports = router
 
-// Update posts
+
+// Update user
 router.patch("/:id", async (request, response) =>{
     try {
-        const post = await update(request.params.id, request.body)
+        const user = await update(request.params.id, request.body)
         response.json({
             success: true,
-            message: "el post ha sido correctamente actualizado",
-            payload: "Post actualizado",
+            message: "el usuario ha sido correctamente actualizado",
+            payload: "Usuario actualizado",
             data: {
-                post
+                user
             }
         })
     } catch (error) {
@@ -97,17 +97,19 @@ router.patch("/:id", async (request, response) =>{
 // Post delete
 router.delete("/:id", async (request, response) => {
     try {
-        await remove( request.params.id )
+        const user = await remove( request.params.id )
         response.json({
             success : true,
-            message: "El post ha sido eliminado...",
-            payload: "Post eliminado"
+            message: "El usuario ha sido eliminado...",
+            payload: "Usuario eliminado"
         })
     } catch (error) {
-        response.status( 400 )
+        response.status( error.status || 500 )
         response.json({
             success: false,
             message: error.message
         })
     }
 })
+
+module.exports = router

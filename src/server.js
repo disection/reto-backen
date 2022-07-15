@@ -1,5 +1,6 @@
 const express = require("express")
-const routerPosts = require("../src/routes/post.routes")
+const routerPosts = require("./routes/post.router")
+const routerUsers = require("./routes/user.router")
 
 
 const app = express()
@@ -10,8 +11,7 @@ app.use(express.json())
 
 // Middleware de rutas
 app.use( "/posts", routerPosts )
-
-
+app.use( "/user", routerUsers)
 
 //Endpoint HOME
 app.get("/", (request, response) => {

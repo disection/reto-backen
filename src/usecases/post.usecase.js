@@ -2,10 +2,8 @@ const Post = require( "../models/post.model" )
 const createError = require( 'http-errors' )
 
 // Usercase
-
 const getAll = () => {
-    const posts = Post.find( {} )
-    return posts
+    return Post.find( {} )    
 }
 
 const getById = (id) => {
@@ -18,12 +16,15 @@ const getById = (id) => {
 }
 
 const create = ( postData ) => {
-    const post = Post.create(postData)
-    return post
+    return Post.create(postData)   
 }
 
 const update = ( id, postData ) =>{
     const post = Post.findByIdAndUpdate( id, postData, { returnDocument: 'after'} )
+    if( !post ) {
+        const error = createError( 404, "Post no encontrado" )
+        throw error
+    }
     return post
 }
 
