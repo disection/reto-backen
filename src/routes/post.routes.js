@@ -5,7 +5,49 @@ const { getAll, getById, create, update, remove } = require("../usecases/post.us
 const router = express.Router()
 
 // getAll posts
-router.get("/")
+router.get("/", async (request,response) => {
+    try {
+        const posts = await getAll()
+        response.json({
+            success: true,
+            message: "Tos el listado de posts esta aquí",
+            payload: "Se imprimen todos los posts",
+            data: {
+                posts
+            }
+        })
+
+    } catch (error) {
+        response.status( 400 )
+        response.json({
+            success: false,
+            message: error.message
+        })
+    }
+})
+
+// GetByID
+router.get("/:id", async (request, response) => {
+    const { id } = request.params
+    try {
+        const post = await getById( id )
+        response. json({
+            success: true,
+            message: "encontre el post que buscabas",
+            payload: "Post encontrado",
+            data: {
+                post
+            }
+            }
+        )
+    } catch (error) {
+        response.status( error.status || 500)
+        response.json({
+            success:false,
+            message: error.message
+        })
+    }
+})
 
 // Posts create
 router.post("/", async (request,response) =>{
