@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 // Schemas
 
-const postSchema = new moongoose.Schema({
+const postSchema = new mongoose.Schema({
     tittle: { 
         type: String, 
         required: true , 
