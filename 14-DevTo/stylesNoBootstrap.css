@@ -1,0 +1,299 @@
+a {
+    text-decoration: none;
+}
+
+.sl_row1 {
+    height: 15%;
+    font-weight: bold;
+    font-size: larger;
+    display: flex;
+    margin: 15px;
+}
+
+.sl_row1:hover a {
+    text-decoration: underline;
+}
+
+.sl_row {
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+}
+
+.sl_row p {
+    margin: 15px;
+    height: 40%;
+    letter-spacing: 1px;
+    line-height: 20px;
+    font-size: medium;
+
+}
+
+.create_account_button {
+    height: 40%;
+    width: 90%;
+    border: 1px solid rgb(59, 99, 185);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 4px 0;
+    margin: 10px;
+}
+
+.create_account_button p {
+    color: rgb(59, 99, 185);
+    font-weight: bold;
+}
+
+.create_account_button:hover {
+    background-color: rgb(59, 99, 185);
+}
+
+.create_account_button:hover p {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login_button {
+    height: 30px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.login_button:hover {
+    border-radius: 5px;
+    background-color: rgb(181, 193, 233);
+    color: rgb(59, 99, 185);
+    text-decoration: underline;
+}
+
+.li_bt {
+    width: 100px;
+}
+
+.ca_bt {
+    width: 140px;
+}
+
+.side_nav {
+    margin: 10px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.side_nav div:hover {
+    border-radius: 5px;
+    background-color: rgb(181, 193, 233);
+    color: rgb(59, 99, 185);
+}
+
+
+.side_nav div {
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.icono {
+    margin: 0 2px;
+    width: 20px;
+}
+
+.other {
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.side_nav a {
+    text-decoration: none;
+    color: rgb(78, 78, 78);
+    height: 20px;
+}
+
+.social {
+    display: flex;
+    position: relative;
+    width: 90%;
+    height: 35px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.social div {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social div:hover {
+    background-color: rgb(181, 193, 233);
+    border-radius: 5px;
+}
+
+.social img {
+    width: 20px;
+    height: 20px;
+}
+
+.popular_tags {
+    height: 200px;
+    overflow-y: scroll;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.popular_tags p {
+    height: 30px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.popular_tags p:hover {
+    border-radius: 5px;
+    background-color: rgb(181, 193, 233);
+    color: rgb(59, 99, 185);
+    cursor: pointer;
+}
+
+.banner {
+    width: 95%;
+    border-radius: 10px;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: rgb(59, 99, 185);
+    letter-spacing: 1px;
+}
+
+.banner img {
+    margin-top: 15px;
+    width: 200px;
+    height: 280px;
+    border-radius: 5px;
+}
+
+.repo {
+    margin: 10px 0;
+    width: 95%;
+    border-radius: 10px;
+    background-color: #fafafa;
+    letter-spacing: 1px;
+}
+
+.repo p {
+    padding: 5px 20px;
+}
+
+.repo .check {
+    font-weight: bold;
+}
+
+ul {
+    padding-bottom: 20px;
+    text-decoration: none;
+}
+
+.hashtag {
+    border: 1px solid transparent;
+    padding: 5px;
+}
+
+.hashtag:hover {
+    border: 1px solid rgb(128, 128, 128);
+    background-color: rgb(221, 221, 221);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.listings {
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.title p {
+    font-weight: bold;
+}
+
+.title a {
+    font-size: small;
+}
+
+.element {
+    width: 100%;
+
+}
+
+.element div {
+    margin: 0 15px;
+}
+
+.element div:first-child {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.element div:last-child {
+    font-size: smaller;
+    margin-bottom: 10px;
+}
+
+.element:hover {
+    background-color: white;
+    cursor: pointer;
+    color: rgb(65, 129, 212);
+}
+
+.bottom_listing {
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.new {
+    background-color: rgb(255, 208, 80);
+    width: fit-content;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.guides .bottom_listing {
+    text-align: start;
+    padding: 0 15px;
+    margin-top: 30px;
+}
+
+.guides .element p {
+    font-size: small;
+    padding: 5px 15px;
+}
+
+hr {
+    width: 90%;
+}
