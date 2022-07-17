@@ -11,7 +11,7 @@ router.get("/", async (request,response) => {
         response.json({
             success: true,
             message: "Todo el listado de posts esta aquí",
-            payload: "Se imprimen todos los posts",
+           
             data: {
                 posts
             }
@@ -34,7 +34,7 @@ router.get("/:id", async (request, response) => {
         response. json({
             success: true,
             message: "encontre el post que buscabas",
-            payload: "Post encontrado",
+            
             data: {
                 post
             }
@@ -57,7 +57,7 @@ router.post("/", async (request,response) =>{
         response.json({            
             success: true,
             message: "El post ha sido creado",
-            payload: "Post create",
+            
             data: {
                 post
             }
@@ -80,7 +80,7 @@ router.patch("/:id", async (request, response) =>{
         response.json({
             success: true,
             message: "el post ha sido correctamente actualizado",
-            payload: "Post actualizado",
+            
             data: {
                 post
             }
@@ -101,7 +101,7 @@ router.delete("/:id", async (request, response) => {
         response.json({
             success : true,
             message: "El post ha sido eliminado...",
-            payload: "Post eliminado"
+            
         })
     } catch (error) {
         response.status( error.status || 500 )

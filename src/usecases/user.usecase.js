@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt")
 const jwt = require("../lib/jwt.lib")
 
 
+
 // Usercase
 const getAll = () => {
     return User.find( {} )    
@@ -21,6 +22,7 @@ const getById = (id) => {
 
 
 const  create = async(userData) => {
+    //cript
     const hash = await bcrypt.hash(userData.password, 10)
     userData.password = hash 
     const user = User.create( userData )

@@ -1,10 +1,10 @@
 const express = require("express")
-const app = require("../server")
-const createError = require('http-errors')
-
 const { getAll, getById, create, update, remove } = require("../usecases/user.usecase")
+const authMiddleeare = require("../middlewares/auth.middleware")
 
 const router = express.Router()
+
+router.use(authMiddleeare)
 
 // getAll users
 router.get("/", async (request,response) => {
@@ -13,7 +13,7 @@ router.get("/", async (request,response) => {
         response.json({
             success: true,
             message: "Todo el listado de usuarios esta aquí",
-            payload: "Se imprimen todos los usuarios",
+            
             data: {
                 users
             }
@@ -35,7 +35,7 @@ router.get("/:id", async (request, response) => {
         response. json({
             success: true,
             message: "encontre el usuario que buscabas",
-            payload: "Usuario encontrado",
+            
             data: {
                 user
             }
@@ -57,11 +57,9 @@ router.post("/", async (request,response) =>{
         response.status(201)
         response.json({            
             success: true,
-            message: "El usuario ha sido creado correctamente",
-            payload: "Usuario creado",
-            data: {
-                user
-            }
+            message: "El usuario ha sido creado correctamente", 
+            data: { user }          
+            
         })
     } catch (error) {
         response.status( error.status || 500)
@@ -81,7 +79,7 @@ router.patch("/:id", async (request, response) =>{
         response.json({
             success: true,
             message: "el usuario ha sido correctamente actualizado",
-            payload: "Usuario actualizado",
+            
             data: {
                 user
             }
@@ -102,7 +100,7 @@ router.delete("/:id", async (request, response) => {
         response.json({
             success : true,
             message: "El usuario ha sido eliminado...",
-            payload: "Usuario eliminado"
+            
         })
     } catch (error) {
         response.status( error.status || 500 )

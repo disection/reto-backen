@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require("cors")
 const routerPosts = require("./routes/post.router")
 const routerUsers = require("./routes/user.router")
 const routerAuth = require("./routes/auth.router")
@@ -8,6 +9,7 @@ const app = express()
 
 
 // Middleware
+app.use(cors())
 app.use(express.json())
 
 // Middleware de rutas

@@ -9,19 +9,14 @@ router.post("/", async (request, response) => {
         const token =await login (email, password)
         response.json({
             success:true,
-            data:{
-                token
-            }
+            token
         })
     } catch (error) {
         response.status( error.status || 500 )
         response.json({
             success:false,
             message: error.message
-
-        })
-        
-    }
-    
+        })        
+    }    
 })
 module.exports = router
