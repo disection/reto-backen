@@ -1,10 +1,10 @@
 const express = require("express")
 const { getAll, getById, create, update, remove } = require("../usecases/user.usecase")
-const authMiddleeare = require("../middlewares/auth.middleware")
+const auth = require("../middlewares/auth.middleware")
 
 const router = express.Router()
 
-router.use(authMiddleeare)
+router.use(auth)
 
 // getAll users
 router.get("/", async (request,response) => {
