@@ -29,7 +29,8 @@ router.get("/", async (request,response) => {
 })
 
 // GetByID
-router.get("/:id", async (request, response) => {   
+router.get("/detail", auth, async (request, response) => {   
+    console.log("estamos en detalle de id")
     try {
         const user = await getById( request.params.id )
         response. json({
@@ -69,8 +70,6 @@ router.post("/", async (request,response) =>{
         })
     }
 })
-
-
 
 // Update user
 router.patch("/:id", async (request, response) =>{

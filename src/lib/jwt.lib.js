@@ -6,6 +6,7 @@ const sign = ( payload = {} ) => {
 }
 
 const verify = ( token ) => {
-    return jwt.verify = ( token, JWT_SECRET ) 
+    console.log(token)
+    return jwt.verify( token, JWT_SECRET ) 
 }
 module.exports = { sign, verify }

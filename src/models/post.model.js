@@ -8,30 +8,40 @@ const postSchema = new mongoose.Schema({
         required: true , 
         unique: true
     },
-    image: { 
-        type: String,
-        required: true 
-    },
     content: { 
         type: String, 
         required: true, 
         unique: true, 
         index: true 
     },
-    date: { 
-        type: Date, 
-        default: Date.now()
-    },
     tags: { 
-        type: String, 
+        type: Array, 
         required: true,  
+    },
+    urlCoverImage: { 
+        type: String,
+        required: true 
     },
     author: {
         type: String,
         require: true,
         maxlength: 20,
         minlength: 3
-    }
+    },   
+    createDate: { 
+        type: Date, 
+        default: Date.now()
+    },
+    minToRead: { 
+        type: String,
+        required: true 
+    },
+    avatarAuthor: { 
+        type: String,
+        required: true 
+    },
+   
+    
 
     
 })
