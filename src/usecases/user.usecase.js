@@ -52,7 +52,6 @@ const login = async (email, textPlainPassword) =>{
     if(!isValidPassword) throw createError(401, "Invalid data")
 
     const token = jwt.sign( { id : user._id } )
-    console.log("token de usercase: ",token)
     return token;
 }
 

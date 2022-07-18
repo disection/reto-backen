@@ -5,9 +5,10 @@ const auth = (request,response, next) => {
         const authorization = request.headers.authorization || ""
         const token = authorization.replace("Bearer ", "")        
 
-        const isverifiedToken = jwt.verify(token)    
-        request["userId"] = isverifiedToken.userId
-       
+        const isverifiedToken = jwt.verify(token)  
+
+        
+        
         next() 
 
     } catch (error) {

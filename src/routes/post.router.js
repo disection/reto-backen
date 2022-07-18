@@ -1,8 +1,10 @@
 const express = require("express")
 const app = require("../server")
 const { getAll, getById, create, update, remove } = require("../usecases/post.usecase")
-
+const auth = require("../middlewares/auth.middleware")
 const router = express.Router()
+
+
 
 // getAll posts
 router.get("/", async (request,response) => {
@@ -63,7 +65,7 @@ router.post("/", async (request,response) =>{
             }
         })
     } catch (error) {
-        response.status(error.message || 500 )
+        response.status(  500 )
         response.json({
             success: false,
             message : error.message
@@ -74,7 +76,7 @@ router.post("/", async (request,response) =>{
 
 
 // Update posts
-router.patch("/:id", async (request, response) =>{
+router.patch("/:id", auth, async (request, response) =>{
     try {
         const post = await update(request.params.id, request.body)
         response.json({
@@ -95,7 +97,7 @@ router.patch("/:id", async (request, response) =>{
 })
 
 // Post delete
-router.delete("/:id", async (request, response) => {
+router.delete("/:id", auth, async (request, response) => {
     try {
         const post = await remove( request.params.id )
         response.json({

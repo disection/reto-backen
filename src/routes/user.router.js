@@ -28,8 +28,31 @@ router.get("/", async (request,response) => {
     }
 })
 
+// GetByID detail
+router.get("/detail",auth, async (request, response) => {   
+    console.log("estamos en detalle de id")
+    try {
+        const user = await getById( request.params.id )
+        response. json({
+            success: true,
+            message: "encontre el usuario que buscabas",
+            
+            data: {
+                user
+            }
+            }
+        )
+    } catch (error) {
+        response.status( error.status || 500)
+        response.json({
+            success:false,
+            message: error.message
+        })
+    }
+})
+
 // GetByID
-router.get("/detail", auth, async (request, response) => {   
+router.get("/:id", async (request, response) => {   
     console.log("estamos en detalle de id")
     try {
         const user = await getById( request.params.id )

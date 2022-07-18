@@ -15,7 +15,7 @@ const postSchema = new mongoose.Schema({
         index: true 
     },
     tags: { 
-        type: Array, 
+        type: String, 
         required: true,  
     },
     urlCoverImage: { 
@@ -39,7 +39,7 @@ const postSchema = new mongoose.Schema({
     avatarAuthor: { 
         type: String,
         required: true 
-    },
+    }
    
     
 
